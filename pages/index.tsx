@@ -16,7 +16,9 @@ export default function Home() {
     const check = async () => {
       setProgress(30);
       try {
-        const resp = await fetch(`/api/check-mx?email=${encodeURIComponent(email)}`);
+        const resp = await fetch(
+          `/api/check-mx?email=${encodeURIComponent(email)}`
+        );
         setProgress(60);
         const data = await resp.json();
 
@@ -41,15 +43,28 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
       {/* Animated Gears */}
-      <motion.div
-        className="flex space-x-6 mb-8"
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
-      >
-        <Cog className="w-16 h-16 text-blue-300" />
-        <Cog className="w-12 h-12 text-blue-400" />
-        <Cog className="w-20 h-20 text-blue-200" />
-      </motion.div>
+      <div className="flex space-x-6 mb-8">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
+        >
+          <Cog className="w-16 h-16 text-blue-300" />
+        </motion.div>
+
+        <motion.div
+          animate={{ rotate: -360 }} // opposite direction
+          transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+        >
+          <Cog className="w-12 h-12 text-blue-400" />
+        </motion.div>
+
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+        >
+          <Cog className="w-20 h-20 text-blue-200" />
+        </motion.div>
+      </div>
 
       {/* Progress bar */}
       <div className="w-64 h-3 bg-blue-950 rounded-full overflow-hidden shadow-lg">

@@ -1,5 +1,5 @@
 "use client";
-export const dynamic = "force-dynamic";
+export const dynamic = "error";
 export const fetchCache = "force-no-store";
 import EmailProcessor from "./EmailProcessor";
 
